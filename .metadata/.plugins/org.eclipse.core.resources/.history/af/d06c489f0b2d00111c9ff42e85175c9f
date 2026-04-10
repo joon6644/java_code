@@ -1,0 +1,28 @@
+package homework;
+
+import java.util.Scanner;
+
+public class Week05_05 {
+
+	public static void main(String[] args) {
+		System.out.println("60250770 전준태");
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("두 수를 입력하시오: ");
+		int n1 = sc.nextInt();
+		int n2 = sc.nextInt();
+		
+		for (int x = Math.max(n1, n2); x > 0; x--) {
+			if (n1 / x == 0 && n2 / x ==0) {
+				
+			}
+		}
+		
+		/*
+		 * 최소공배수: xx
+		 * 최대공약수: xx
+		 */
+	}
+
+}

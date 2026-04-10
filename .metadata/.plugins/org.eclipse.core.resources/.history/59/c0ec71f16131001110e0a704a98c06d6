@@ -1,0 +1,45 @@
+package homework;
+
+import java.util.Scanner;
+
+public class Week06_01 {
+
+	public static void main(String[] args) {
+		System.out.println("60250770 전준태");
+		
+		Scanner sc = new Scanner(System.in);
+		
+		String[] subjects = {"국어", "영어", "수학"};
+		String[] names = new String[4];
+		int[][] scores = new int[3][4];
+		
+		
+		System.out.println("이름과 점수를 입력하시오.");
+		for (int i = 0; i < names.length; i++) {
+			System.out.print("이름: ");
+			names[i] = sc.next();
+			
+			for (int j = 0; j < 3; j++) {
+				System.out.print(subjects[j] + ": ");
+				scores[i][j] = sc.nextInt();
+			}
+
+		}
+		System.out.println("\t" + "Kor Eng Mat Tot Avg");
+		System.out.println("===========================");
+		
+		for (int i = 0; i < 4; i++) {
+			int sum = 0;
+			for (int j = 0; j < subjects.length; j++) {
+				sum += scores[i][j];
+			}
+			
+			double avg = sum / 3;
+
+			System.out.print(names[i] + scores[0] + scores[1]);
+		}
+		
+		sc.close();
+	}
+
+}

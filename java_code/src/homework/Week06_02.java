@@ -1,0 +1,21 @@
+package homework;
+
+public class Week06_02 {
+
+	public static void main(String[] args) {
+		/*
+		알파벳을 입력받아 사전순으로 가장 빠른 것을 출력하시오. 
+		• “quit”를 입력하면 끝남
+		알파벳을 입력하시오.
+		e
+		a
+		c
+		z
+		s
+		quit
+		가장 빠른 알파벳은 a
+		*/
+
+	}
+
+}
