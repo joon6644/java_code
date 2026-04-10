@@ -1,4 +1,0 @@
-INDEX VERSION 1.134+C:\Users\joon6\OneDrive\2학년 1학기\컴퓨터프로그래밍\java_code\.metadata\.plugins\org.eclipse.jdt.core
-1865797976.index
-900475871.index
-1607807801.index
