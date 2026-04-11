@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class practice1 {
 	
 	public static void main(String[] args) {
-		p14();
+		p37();
 	}
 	
 	public static void p1() {
@@ -300,15 +300,7 @@ public class practice1 {
 		 * 
 		 */
 		
-		for (int i = 15; i <= 49; i++) {
-			System.out.println("public static void p" + i + "() {");
-			System.out.println("\t/*");
-			System.out.println("\t *");
-			System.out.println("\t */");
-			System.out.println("}");
-			System.out.println();
-		}
-		
+
 	}
 
 	public static void p15() {
@@ -317,6 +309,24 @@ public class practice1 {
 		 * 예시) 두 수를 입력하시오: 30 20 -> 공약수: 1 2 5 10 
 		 * 30과 20의 공약수는 4개입니다. 
 		 */
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("두 수를 입력하시오: ");
+		int a = sc.nextInt();
+		int b = sc.nextInt();
+		
+		int cnt = 0;
+		System.out.print("공약수: ");
+		for (int i = 0; i < Math.min(a,  b); i++) {
+			if ((a % i == 0) && (b % i == 0)) {
+				System.out.print(i + " ");
+				cnt += 1;
+			}
+		}
+		System.out.println(a + "과" + b + "의 공약수는 " + cnt + "개입니다.");
+		
+		sc.close();
 	}
 
 	public static void p16() {
@@ -328,7 +338,7 @@ public class practice1 {
 
 	public static void p17() {
 		/*
-		 * (PDF 17번 항목: 세부 내용 없음) 
+		 * 정수형 변수 a, b, c를 선언하고 임의의 값을 입력한 뒤 합을 계산하여 별도의 변수에 저장하고 출력.
 		 */
 	}
 
@@ -432,6 +442,20 @@ public class practice1 {
 		 * 1부터 입력받은 수 사이에 있는 홀수만을 출력하되 
 		 * continue를 반드시 사용하여 구현하시오. 
 		 */
+		Scanner sc = new Scanner(System.in);
+		
+		int x = sc.nextInt();
+		int i = 1;
+		
+		while (i <= x) {
+			if (i % 2 == 0) {
+				continue;
+			}
+			System.out.println(i);
+			i++;
+		}
+		
+		sc.close();
 	}
 
 	public static void p32() {
@@ -443,28 +467,73 @@ public class practice1 {
 		 * 4 5
 		 * 5 
 		 */
+		
+		for (int i = 0; i < 5; i++) {
+			for (int j = 0; j < 5; j++) {
+				if (i + j + 1 >= 6) {
+					break;
+				}
+				System.out.print(i + j + 1 + " ");
+			}
+			System.out.println();
+		}
 	}
 
 	public static void p33() {
 		/*
-		 * 중첩 반복문을 사용하여 별 패턴을 출력하시오. (다이아몬드/역삼각형 형태) 
+		 * 중첩 반복문을 사용하여 별 패턴을 출력하시오. 역삼각형 형태
+		 * * * * * *
+		 *   * * * * 
+		 *     * * *
+		 *       * * 
+		 *         *
 		 */
+		for (int i = 0; i < 5; i++) {
+			for (int j = 0; j < 5; j++) {
+				if (i > j) {
+					System.out.print("  ");
+				} else {
+					System.out.print("* ");
+				}
+			}
+			System.out.println();
+		}
 	}
 
 	public static void p34() {
 		/*
-		 * 과목명(국어, 영어, 수학, 과학)과 점수(100, 80, 90, 95) 배열을 각각 만들고 
-		 * 과목명을 입력하면 점수가 출력되게 하시오. ("그만" 입력 시 종료) 
+		 * 왼쪽 위에서 오른쪽 아래로 대각선 별 출력
 		 */
 	}
 
 	public static void p35() {
 		/*
-		 * 아래 2차원 배열을 정의하고 각 방의 값을 반복문을 통해 할당한 뒤 출력하시오. 
-		 * 1 2 3 4
-		 * 2 4 6 8
-		 * 3 6 9 12 
-		 */
+		 * 과목명(국어, 영어, 수학, 과학)과 점수(100, 80, 90, 95) 배열을 각각 만들고 
+		 * 과목명을 입력하면 점수가 출력되게 하시오. ("그만" 입력 시 종료)
+		 * 인덱스를 이용해보겠슨 
+		 */ 
+		
+		String[] subjects = {"국어", "영어", "수학", "과학"};
+		int[] scores = {100, 80, 90, 95};
+		
+		Scanner sc = new Scanner(System.in);
+		
+		while (true) {
+			System.out.print("과목명을 입력하시오. ");
+			String input = sc.next();
+			
+			if (input.equals("그만")) {
+				break;
+			}
+			
+			for (int i = 0; i < subjects.length; i++) {
+				if (input.equals(subjects[i])) {
+					System.out.println(scores[i]);
+				}
+			}
+		}
+		sc.close();
+		
 	}
 
 	public static void p36() {
@@ -472,12 +541,47 @@ public class practice1 {
 		 * 크기가 30인 배열에 피보나치 수열을 저장하고 출력해보시오. 
 		 * (1, 1, 2, 3, 5, 8, 13, 21 ...) 
 		 */
+		
+		int[] arr = new int[30];
+		
+		arr[0] = 1;
+		arr[1] = 1;
+		
+		for (int i = 2; i < arr.length; i++) {
+			arr[i] = arr[i - 2] + arr[i - 1];
+		}
+		
+		for (int i = 0; i < arr.length; i++) {
+			System.out.print(arr[i]);
+			
+			if (i != arr.length - 1) {
+				System.out.print(", ");
+			}
+		}
 	}
 
 	public static void p37() {
 		/*
-		 * (PDF 37번 항목: 세부 내용 없음) 
+		 * 아래 2차원 배열을 정의하고 각 방의 값을 반복문을 통해 할당한 뒤 출력하시오. 
+		 * 1 2 3 4
+		 * 2 4 6 8
+		 * 3 6 9 12 
 		 */
+		
+		int[][] arr = new int[3][4];
+		
+		for (int i = 0; i < arr.length; i++) {
+			for (int j = 0; j < arr[i].length; j++) {
+				arr[i][j] = (j + 1) * (i + 1);
+			}
+		}
+		
+		for (int i = 0; i < arr.length; i++) {
+			for (int j = 0; j < arr[i].length; j++) {
+				System.out.print(arr[i][j] + " ");
+			}
+			System.out.println();
+		}
 	}
 
 	public static void p38() {
@@ -526,28 +630,45 @@ public class practice1 {
 
 	public static void p44() {
 		/*
-		 * 이중 for문을 사용하여 아래 패턴을 출력하시오. (격자 좌표 형태) 
+		 * 출력 예시)
 		 * 00 01 02 03 04
 		 * 10 11 12 13
-		 * 20 21 22 ... 
+		 * 20 21 22
+		 * 30 31
+		 * 40
 		 */
 	}
 
 	public static void p45() {
 		/*
-		 * 이중 for문을 사용하여 숫자가 특정 위치에 찍히는 패턴을 출력하시오. 
+		 * 출력 예시)
+		 * * * 1 * *
+		 * * * 2 * *
+		 * 1 2 3 4 5
+		 * * * 4 * *
+		 * * * 5 * *
 		 */
 	}
 
 	public static void p46() {
 		/*
-		 * 이중 for문을 사용하여 별과 숫자가 섞인 패턴을 출력하시오. 
+		 * 출력 예시)
+		 * 1 * * * 1
+		 * * 2 * 2 *
+		 * * * 3 * *
+		 * * 4 * 4 *
+		 * 5 * * * 5
 		 */
 	}
 
 	public static void p47() {
 		/*
-		 * 이중 for문을 사용하여 '00000', 'XXXX' 등이 반복되는 패턴을 출력하시오. 
+		 * 출력 예시)
+		 * O O O O O
+		 * X X X X
+		 * O O O
+		 * X X
+		 * O
 		 */
 	}
 
