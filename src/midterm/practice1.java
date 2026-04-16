@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class practice1 {
 	
 	public static void main(String[] args) {
-		p37();
+		p30();
 	}
 	
 	public static void p1() {
@@ -283,14 +283,22 @@ public class practice1 {
 	
 	public static void p12() {
 		/*
-		 * 
+		 * 정수 하나를 입력받아서 소수인지 아닌지 판별해보시오.
+		 * 단, “은”과 “는”이 구별되어 출력되어야 함.
+		 * 실행결과)
+		 * 12
+		 * 12는 소수가 아닙니다.
 		 */
 		
 	}
 	
 	public static void p13() {
 		/*
-		 * 
+		 * 1 2 3 4 5
+		 * 6 7 8 9 10
+		 * 11 12 13 14 15
+		 * 16 17 18 19 20
+		 * 21 22 23 24 25
 		 */
 		
 	}
@@ -435,6 +443,25 @@ public class practice1 {
 		 * 숫자 5개를 입력받고 최소값과 최대값을 출력하시오. 
 		 * 예시) 입력: 5 2 10 8 20 -> 최소: 2, 최대: 20 
 		 */
+		
+		Scanner sc = new Scanner(System.in);
+		
+		int max = Integer.MIN_VALUE;
+		int min = Integer.MAX_VALUE;
+		
+		for (int i = 0; i < 5; i++) {
+			int input = sc.nextInt();
+			
+			if (input > max) {
+				max = input;
+			}
+			if (input < min) {
+				min = input;
+			}
+		}
+		System.out.println("최소: " + min + ", 최대: " + max);
+		
+		sc.close();
 	}
 
 	public static void p31() {
@@ -603,6 +630,21 @@ public class practice1 {
 		 * 두 개의 정수를 입력받아 두 수 사이 모든 숫자의 평균을 계산하시오. 
 		 * (숫자 크기 순서 고려, 실수값 출력) 
 		 */
+		
+		Scanner sc = new Scanner(System.in);
+		
+		int a = sc.nextInt();
+		int b = sc.nextInt();
+		
+		int sum = 0;
+		double cnt = Math.abs(b - a) + 1;
+		
+		for (int i = Math.min(a, b); i <= Math.max(a, b); i++) {
+			sum += i;
+		}
+		System.out.println(sum / cnt);
+		
+		sc.close();
 	}
 
 	public static void p41() {
@@ -610,8 +652,25 @@ public class practice1 {
 		 * 이중 For 문을 사용하여 아래 패턴을 배열에 할당하고 출력하시오. 
 		 * 1 3 5 7 9
 		 * 2 4 6 8 10
-		 * 3 5 7 9 11 ... 
+		 * 3 5 7 9 11
+		 * 4 6 8 10 12
+		 * 5 7 9 11 13
 		 */
+		
+		int[][] arr = new int[5][5];
+		
+		for (int i = 0; i < arr.length; i++) {
+			for (int j = 0; j < arr[i].length; j++) {
+				arr[i][j] = (i + 1) + (2 * j);
+			}
+		}
+		
+		for (int i = 0; i < arr.length; i++) {
+			for (int j = 0; j < arr[i].length; j++) {
+				System.out.print(arr[i][j] + " ");
+			}
+			System.out.println();
+		}
 	}
 
 	public static void p42() {
@@ -619,6 +678,23 @@ public class practice1 {
 		 * 1부터 10 사이의 임의의 숫자를 생성하고 이를 맞추는 코드를 작성하시오. 
 		 * (크다/작다 힌트를 주며 맞출 때까지 반복) 
 		 */
+		Scanner sc = new Scanner(System.in);
+		
+		int rand = (int) (Math.random() * 10) + 1;
+		
+		while (true) {
+			int input = sc.nextInt();
+			
+			if (rand > input) {
+				System.out.println("정답보다 작다");
+			} else if (rand < input) {
+				System.out.println("정답보다 크다");
+			} else {
+				System.out.println("정답");
+				break;
+			}
+		} 
+		sc.close();
 	}
 
 	public static void p43() {
@@ -626,6 +702,15 @@ public class practice1 {
 		 * 배열 arr에 다섯 개의 값(10, 20, 30, 40, 50)을 저장하고 
 		 * 반복문을 활용하여 다섯 개 값의 합을 구하시오. 
 		 */
+		
+		int[] arr = {10, 20, 30, 40, 50};
+		int sum = 0;
+		
+		for (int i = 0; i < arr.length; i++) {
+			sum += arr[i];
+		}
+		
+		System.out.println(sum);
 	}
 
 	public static void p44() {
@@ -637,6 +722,13 @@ public class practice1 {
 		 * 30 31
 		 * 40
 		 */
+		
+		for (int i = 0; i < 5; i++) {
+			for (int j = 0; j < 5 - i; j ++) {
+				System.out.print("" + i + j + " ");	
+			}
+			System.out.println();
+		}
 	}
 
 	public static void p45() {
@@ -648,6 +740,17 @@ public class practice1 {
 		 * * * 4 * *
 		 * * * 5 * *
 		 */
+		
+		for (int i = 0; i < 5; i++) {
+			for (int j = 0; j < 5; j++) {
+				if (i == 2 || j == 2) {
+					System.out.print(i + j - 1 + " ");
+				} else {
+					System.out.print("* ");
+				}
+			}
+			System.out.println();
+		}
 	}
 
 	public static void p46() {
@@ -659,6 +762,17 @@ public class practice1 {
 		 * * 4 * 4 *
 		 * 5 * * * 5
 		 */
+		
+		for (int i = 0; i < 5; i++) {
+			for (int j = 0; j < 5; j++) {
+				if (i - j == 0 || i + j == 4) {
+					System.out.print(i + " ");
+				} else {
+					System.out.print("* ");
+				}
+			}
+			System.out.println();
+		}
 	}
 
 	public static void p47() {
@@ -670,6 +784,19 @@ public class practice1 {
 		 * X X
 		 * O
 		 */
+		
+		for (int i = 0; i < 5; i++) {
+			for (int j = 0; j < 5; j++) {
+				if (i + j <= 4) {
+					if (i % 2 == 0) {
+						System.out.print("O ");
+					} else {
+						System.out.print("X ");
+					}
+				}
+			}
+			System.out.println();
+		}
 	}
 
 	public static void p48() {
@@ -677,6 +804,22 @@ public class practice1 {
 		 * 주어진 배열 {10, 20, 30, 50, 3, 60, -3}에서 
 		 * 최대값과 최소값을 찾아 출력하는 코드를 완성하시오. 
 		 */
+		
+		int[] arr = {10, 20, 30, 50, 3, 60, -3};
+		int min = arr[0];
+		int max = arr[0];
+		
+		for (int i = 0; i < arr.length; i++) {
+			if (arr[i] < min) {
+				min = arr[i];
+			}
+			if (arr[i] > max) {
+				max = arr[i];
+			}
+		}
+		
+		System.out.println("최대값: " + max);
+		System.out.println("최소값: " + min);
 	}
 
 	public static void p49() {
@@ -684,6 +827,16 @@ public class practice1 {
 		 * 문자 배열 {'a', 'b', 'c', 'd'}에서 n을 입력하면 
 		 * array[n] 번째 원소를 출력해 주는 코드를 작성하시오. 
 		 */
+		
+		Scanner sc = new Scanner(System.in);
+		
+		char[] arr = {'a', 'b', 'c', 'd'};
+		
+		int idx = sc.nextInt();
+		
+		System.out.println(arr[idx]);
+		
+		sc.close();
 	}
 
 
